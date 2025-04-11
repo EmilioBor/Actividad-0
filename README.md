@@ -1,1 +1,2 @@
-# Actividad-0
+Actividad 0
+Emilio Javier Bordignon
