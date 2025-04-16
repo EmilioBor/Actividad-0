@@ -1,8 +1,6 @@
-
 import datetime
 from django.db import models
 from django.utils import timezone
-# Create your models here.
 
 
 class Question(models.Model):
@@ -13,6 +11,10 @@ class Question(models.Model):
         return self.question_text
 
     def was_published_recently(self):
+        # Retorna False si la fecha de publicación está en el futuro
+        if self.pub_date > timezone.now():
+            return False
+        # Retorna True solo si la pregunta fue publicada dentro de las últimas 24 horas
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 
